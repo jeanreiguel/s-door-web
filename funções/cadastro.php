@@ -132,7 +132,7 @@
 		<div id="img">
 			<img src="../imgs/sign-in 1.svg">
 		</div>
-	<form id="campos" method='POST' name='insert' action='/acesso/cadastrar.php'>
+	<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php'>
 	<div class="container">
 		<legend id="legend">CADASTRO DE USUÁRIO</legend>
 			<div id="legend">

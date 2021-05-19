@@ -2,22 +2,17 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "projetoweg";
+$db = "portaiot";
  
 $conn = new mysqli($servername, $username, $password, $db);
 	
-	$secao = $_POST["secao"];
-	$id = 'null';
-	$titulo = $_POST["titulo"];
-	$descricao = $_POST["descricao"];
-	$cta = $_POST["cta"];
-	$linkcta = $_POST["linkcta"];
-	$cta2 = $_POST["cta2"];
-	$linkcta2 = $_POST["linkcta2"];
-	$lista = $_POST["lista"];
-	$visivel = $_POST["visivel"];
+	$id = $_POST["cod"];
+	$nome = $_POST["nome"];
+	$senha = $_POST["senha"];
+	$perm = $_POST["permissao"];
 
-	$sql = ("INSERT INTO conteudo VALUES ('$secao',$id,'$titulo','$descricao','$cta','$linkcta','$cta2','$linkcta2','$lista',$visivel);");
+
+	$sql = ("INSERT INTO usuarios VALUES ($id,'$nome',$senha,$perm,'0')");
 	if (mysqli_query($conn, $sql)) {
       echo "
 	<html>
@@ -25,8 +20,9 @@ $conn = new mysqli($servername, $username, $password, $db);
 		alert('###### SUCESSO AO INSERIR ######');
 		</script>
 	</html>	";
+	header("location: ../funções/cadastro.php");
 } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 	
-	?>
+?>

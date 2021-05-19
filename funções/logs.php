@@ -13,12 +13,12 @@ input[type="submit"] {
 		font-size: 1.1rem;
 		transition: all .3s ease-in-out;
 	}
-	#table {
+    #table {
         width:70%;
         margin:10%;
         align-items: center;
     }
-	thead {
+    thead {
         background: #198754;
     }
     thead p {
@@ -34,22 +34,19 @@ $password = "";
 $db = "portaiot";
 $conn = new mysqli($servername, $username, $password, $db);
 
-$sql = ("SELECT codUsuario, nome, senha, permissao, dentro FROM usuarios WHERE permissao = TRUE");
+$sql = ("SELECT * FROM CONTROLE_ENTRADA_E_SAIDA");
 echo"<body class='row justify-content-lg p-3 mb-2 bg-dark text-white'>	";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			echo " 
-	<div  id='table'>
+    <div  id='table'>
 	<table class='table'>
 	<thead>
     <tr>
       <th scope='col'><p>CÓDIGO</p></th>
-      <th scope='col'><p>NOME</p></th>
-      <th scope='col'><p>SENHA</p></th>
-	  <th scope='col'><p>PERMISSAO</p></th>
-	  <th scope='col'><p>DENTRO</p></th>
+      <th scope='col'><p>HORÁRIO</p></th>
     </tr>
   </thead>
   <tbody>";
@@ -58,11 +55,9 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     echo "
 	
-	<tr> <th scope='row'>
-	<p>" . $row["codUsuario"]. "</p></th>
-	<td><p>" . $row["nome"]. "</p></td> <td><p>" . $row["senha"]. "</p></td>
-	<td><p>" . $row["permissao"]. "</p></td>
-	<td><p>" . $row["dentro"]. "</p></td>
+	<tr> 
+    <th scope='row'><p>" . $row["codUsuario"]. "</p></th>
+	<td><p>" . $row["hora_e_data"]. "</p></td> 
 	</tr>
 	</tbody>";
 	}

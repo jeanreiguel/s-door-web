@@ -19,7 +19,7 @@
 	#opcoes{
 		margin-top:100px;
 		width: 500px;
-		height: 350px;
+		height: 450px;
 		background-color: #00473B;
 		border-radius:20px;
 	}
@@ -45,7 +45,14 @@
 		font-size: 1.1rem;
 		transition: all .3s ease-in-out;
 	}
-
+	#estadoporta input[type="submit"] {
+		width:90px;
+		cursor: pointer;
+		border: none;
+		border-radius: 5px;
+		background: black;
+		color: white;
+	}
 	input[type="submit"]:hover {
 		background: #0f5132;
 	}
@@ -73,7 +80,28 @@
 		font-size:  40px;
 		color:white;
 	}
-
+	#estadoporta {
+		height:200px;
+		width:300px;
+		background-color: #00473B;
+		position: absolute;
+		right:50;
+		top:100;
+		border-radius:10%;
+		padding:15px;
+	}
+	#camposstatus{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		font-size: 25px;
+	}
+	#estadoporta h1 {
+		margin:30px;
+		font-size:20px;
+		text-align:center;
+	}
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -82,6 +110,14 @@
 	<div id="menu">
 		<img src="imgs/smart-lock.svg">
 		<h1>SENAI</h1>
+	</div>
+	<form method='POST' name='selecao' action='acesso/selecao.php'>
+	<div id="estadoporta">
+	<h1>ESTADO ATUAL ********</h1>
+	<fieldset id="camposstatus">
+		<input type="submit" name="aberta" value="abrir" class="itens">
+		<input type="submit" name="fechada" value="fechar" class="itens">
+		</fieldset>
 	</div>
 	<form method='POST' name='selecao' action='acesso/selecao.php'>
 	<div id="opcoes">
@@ -94,6 +130,8 @@
 				<input type='submit' name='opcao' value='cadastro'>
 			<label>EDIÇÃO</label>
 				<input type='submit' name='opcao' value='edicao'>
+			<label>LOGS</label>
+				<input type='submit' name='opcao' value='logs'>
 		</fieldset>
 	</div>
 </body>
