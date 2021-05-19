@@ -14,9 +14,8 @@ input[type="submit"] {
 		transition: all .3s ease-in-out;
 	}
     #table {
-        width:70%;
-        margin:10%;
-        align-items: center;
+		width:70%;
+		margin-left:10%;
     }
     thead {
         background: #198754;
@@ -47,6 +46,7 @@ echo"<body class='row justify-content-lg p-3 mb-2 bg-dark text-white'>	";
     <tr>
       <th scope='col'><p>CÓDIGO</p></th>
       <th scope='col'><p>HORÁRIO</p></th>
+	  <th scope='col'><p>SITUAÇÃO</p></th>
     </tr>
   </thead>
   <tbody>";
@@ -58,6 +58,7 @@ if ($result->num_rows > 0) {
 	<tr> 
     <th scope='row'><p>" . $row["codUsuario"]. "</p></th>
 	<td><p>" . $row["hora_e_data"]. "</p></td> 
+	<td><p>" . $row["situacao"]. "</p></td> 
 	</tr>
 	</tbody>";
 	}

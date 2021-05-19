@@ -111,14 +111,15 @@
 		<img src="imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 	</div>
-	<form method='POST' name='selecao' action='acesso/selecao.php'>
+	<form method='GET' name='selecao' action='acesso/porta.php'>
 	<div id="estadoporta">
 	<h1>ESTADO ATUAL ********</h1>
 	<fieldset id="camposstatus">
-		<input type="submit" name="aberta" value="abrir" class="itens">
-		<input type="submit" name="fechada" value="fechar" class="itens">
+		<input type="submit" name="estado" value="abrir" class="itens">
+		<input type="submit" name="estado" value="fechar" class="itens">
 		</fieldset>
 	</div>
+	</form>
 	<form method='POST' name='selecao' action='acesso/selecao.php'>
 	<div id="opcoes">
 		<fieldset id="campos">

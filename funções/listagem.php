@@ -15,14 +15,17 @@ input[type="submit"] {
 	}
 	#table {
         width:70%;
-        margin:10%;
-        align-items: center;
+		margin-left:10%;
     }
 	thead {
-        background: #198754;
+		background: #198754;
+	}
+	thead h1 {
+        color: black;
+		font-size:20px;
     }
     thead p {
-        color: black;
+        color: white;
     }
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -36,20 +39,18 @@ $conn = new mysqli($servername, $username, $password, $db);
 
 $sql = ("SELECT codUsuario, nome, senha, permissao, dentro FROM usuarios WHERE permissao = TRUE");
 echo"<body class='row justify-content-lg p-3 mb-2 bg-dark text-white'>	";
-	$result = $conn->query($sql);
+$result = $conn->query($sql);
 
-	if ($result->num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
-			echo " 
-	<div  id='table'>
+echo " 
+	<div id='table'>
 	<table class='table'>
 	<thead>
     <tr>
-      <th scope='col'><p>CÓDIGO</p></th>
-      <th scope='col'><p>NOME</p></th>
-      <th scope='col'><p>SENHA</p></th>
-	  <th scope='col'><p>PERMISSAO</p></th>
-	  <th scope='col'><p>DENTRO</p></th>
+      <th scope='col'><h1>CÓDIGO</h1></th>
+      <th scope='col'><h1>NOME</h1></th>
+      <th scope='col'><h1>SENHA</h1></th>
+	  <th scope='col'><h1>PERMISSAO</h1></th>
+	  <th scope='col'><h1>DENTRO</h1></th>
     </tr>
   </thead>
   <tbody>";
@@ -60,7 +61,8 @@ if ($result->num_rows > 0) {
 	
 	<tr> <th scope='row'>
 	<p>" . $row["codUsuario"]. "</p></th>
-	<td><p>" . $row["nome"]. "</p></td> <td><p>" . $row["senha"]. "</p></td>
+	<td><p>" . $row["nome"]. "</p></td>
+	<td><p>" . $row["senha"]. "</p></td>
 	<td><p>" . $row["permissao"]. "</p></td>
 	<td><p>" . $row["dentro"]. "</p></td>
 	</tr>
@@ -68,8 +70,6 @@ if ($result->num_rows > 0) {
 	}
 	echo "</table></div>";
 }
-		}
-	}
 echo "</body>";
 $conn->close();
 ?>

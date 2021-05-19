@@ -28,9 +28,17 @@
 	p {
 		color: white;
 	}
-	.table {
-		
-	}
+	
+	#table {
+        width:70%;
+		margin-left:0%;
+    }
+	thead {
+        background: #198754;
+    }
+    thead p {
+        color: black;
+    }
 </style>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -49,6 +57,7 @@ $sql = ("SELECT codUsuario, nome, senha, permissao, dentro FROM usuarios WHERE p
 $result = $conn->query($sql);
 
 echo " 
+	<div  id='table'>
 	<table class='table'>
 	<thead>
     <tr>
@@ -73,7 +82,7 @@ if ($result->num_rows > 0) {
 	</tr>
 	</tbody>";
 	}
-	echo "</table>";
+	echo "</table></div>";
 }
 ?>			
 		<form method='GET' action='../acesso/editar.php'>
@@ -87,6 +96,5 @@ if ($result->num_rows > 0) {
 				<input type='submit' name='coluna' value='permissao'>
 				<input type='submit' name='coluna' value='dentro'>
 		</form> 
-		
 	</body>
 </html>
