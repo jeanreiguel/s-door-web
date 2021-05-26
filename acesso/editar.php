@@ -10,20 +10,19 @@ $conn = new mysqli($servername, $username, $password, $db);
 	$coluna = $_GET['coluna'];
 	$alteracao = $_GET['alteracao'];
 	
-	$sql = ("UPDATE usuarios SET $coluna = '$alteracao' WHERE codUsuario = $cod;");
-	$result = $conn->query($sql);
+	$sql = ("UPDATE usuarios SET $coluna = $alteracao WHERE codUsuario = $cod;");
 
-	$conn->close();
+	
 	if (mysqli_query($conn, $sql)) {
-		
-	  header("location: ../funções/cadastro.php");
+		header("location: ../funções/edicao.php");	
+	 
   } else {
-		echo "Error: " 
-		echo "
+		echo "Error: 
 	  <html>
 	  <script>
 		  alert('###### ERRO AO EDITAR ######'<br>. $sql . '<br>' . mysqli_error($conn););
 		  </script>
 	  </html>	";
   }
+  $conn->close();
 ?>

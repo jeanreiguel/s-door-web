@@ -6,13 +6,11 @@ $db = "portaiot";
  
 $conn = new mysqli($servername, $username, $password, $db);
 	
-	$id = $_POST["cod"];
 	$nome = $_POST["nome"];
 	$senha = $_POST["senha"];
-	$perm = $_POST["permissao"];
 
 
-	$sql = ("INSERT INTO usuarios VALUES ($id,'$nome',$senha,$perm,'0')");
+	$sql = ("INSERT INTO usuarios VALUES (null,'$nome','$senha','1','0')");
 	if (mysqli_query($conn, $sql)) {
       echo "
 	<html>

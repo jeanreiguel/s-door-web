@@ -31,7 +31,8 @@
 	
 	#table {
         width:70%;
-		margin-left:0%;
+		margin-top:5%;
+		margin-left:15%;
     }
 	thead {
         background: #198754;
@@ -39,11 +40,46 @@
     thead p {
         color: black;
     }
+	#arrow {
+		height:20px;
+		width:20px;
+		position:absolute;
+		left:50px;
+		top:30px;
+		background-image:url("../imgs/left-arrow.svg")
+	}
+	#menu{
+		width:100%;
+		height:70px;
+		background-color: #479f76;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#menu > img{
+		width:70px;
+		height:70px;
+		margin-left:100px;
+	}
+
+	#menu > h1{
+		font-style: italic;
+		font-weight: 900;	
+		font-family: 'Roboto', sans-serif;
+		font-size:  40px;
+		color:white;
+	}
+	form {
+		margin-top:5%;
+		margin-left:15%;
+	}
 </style>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
-<body class="row justify-content-lg p-3 mb-2 bg-dark text-white">
+<body class="row justify-content-lg mb-2 bg-dark text-white">
 <?php
 $servername = "localhost";
 $username = "root";
@@ -52,11 +88,16 @@ $db = "portaiot";
  
 $conn = new mysqli($servername, $username, $password, $db);
 
-$sql = ("SELECT codUsuario, nome, senha, permissao, dentro FROM usuarios WHERE permissao = TRUE");
+$sql = ("SELECT codUsuario, nome, senha, dentro FROM usuarios WHERE permissao = TRUE");
 	
 $result = $conn->query($sql);
 
 echo " 
+<div id='menu'>
+	<a href='../functions.php' ><div id='arrow'></div></a>
+		<img src='../imgs/smart-lock.svg'>
+		<h1>SENAI</h1>
+	</div>
 	<div  id='table'>
 	<table class='table'>
 	<thead>
@@ -64,7 +105,6 @@ echo "
       <th scope='col'><p>CÓDIGO</p></th>
       <th scope='col'><p>NOME</p></th>
       <th scope='col'><p>SENHA</p></th>
-	  <th scope='col'><p>PERMISSAO</p></th>
 	  <th scope='col'><p>DENTRO</p></th>
     </tr>
   </thead>
@@ -77,7 +117,6 @@ if ($result->num_rows > 0) {
 	<tr> <th scope='row'>
 	<p>" . $row["codUsuario"]. "</p></th>
 	<td><p>" . $row["nome"]. "</p></td> <td><p>" . $row["senha"]. "</p></td>
-	<td><p>" . $row["permissao"]. "</p></td>
 	<td><p>" . $row["dentro"]. "</p></td>
 	</tr>
 	</tbody>";
@@ -93,7 +132,6 @@ if ($result->num_rows > 0) {
 				<label> NA COLUNA - </label>
 				<input type='submit' name='coluna' value='nome'>
 				<input type='submit' name='coluna' value='senha'>
-				<input type='submit' name='coluna' value='permissao'>
 				<input type='submit' name='coluna' value='dentro'>
 		</form> 
 	</body>
