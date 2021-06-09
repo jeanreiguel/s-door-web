@@ -141,20 +141,5 @@ if(isset($_GET['msg'])) {
 		</fieldset>
 	</div>
 	</form>
-	<form method='POST' name='selecao' action='acesso/selecao.php?user=<?php echo $user ?>'>
-	<div id="opcoes">
-		<fieldset id="campos">
-			<legend>OPÇÕES</legend>
-			
-			<label>LISTAGEM</label>
-				<input type='submit' name='opcao' value='listagem'>
-			<label>CADASTRO</label>
-				<input type='submit' name='opcao' value='cadastro'>
-			<label>EDIÇÃO</label>
-				<input type='submit' name='opcao' value='edicao'>
-			<label>LOGS</label>
-				<input type='submit' name='opcao' value='logs'>
-		</fieldset>
-	</div>
 </body>
 </html>

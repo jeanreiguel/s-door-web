@@ -48,12 +48,15 @@ input[type="submit"] {
 		margin-left:100px;
 	}
 
-	#menu > h1{
+	#menu > a > h1{
 		font-style: italic;
 		font-weight: 900;	
 		font-family: 'Roboto', sans-serif;
 		font-size:  40px;
 		color:white;
+	}
+	#menu > a {
+		text-decoration:none;
 	}
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -69,12 +72,15 @@ $sql = ("SELECT * FROM CONTROLE_ENTRADA_E_SAIDA");
 echo"<body class='row justify-content-lg mb-2 bg-dark text-white'>	";
 	$result = $conn->query($sql);
 
+	$user = $_GET["user"];
+	
 	if ($result->num_rows > 0) {
 			echo " 
 			<div id='menu'>
-			<a href='../functions.php' ><div id='arrow'></div></a>
+				<a href='../functions.php?user=$user'>
 				<img src='../imgs/smart-lock.svg'>
 				<h1>SENAI</h1>
+				</a>
 			</div>
 			<div  id='table'>
 			<table class='table'>

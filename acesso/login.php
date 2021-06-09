@@ -12,25 +12,29 @@ $result = $conn->query($sql);
 
 if(isset($_POST["user"]) && isset($_POST["senha"])){
 	$user = $_POST["user"];
-	$senha = $_POST["senha"];
+	$senha = md5($_POST["senha"]);
 	
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$people = $row["nome"];
 			$password = $row["senha"];
+			
 
 			if($user == $people && $senha == $password) {
-				header("location: ../functions.php?msg=sucesso&user=$user");
+				$perm = $row["permissao"];
 				$conexao = "sucesso";	
-				$erro = 'correto';		
-			} else {
-				$erro = 'erro';
+				$erro = 'correto';	
+				if($perm == 1) {
+					header("location: ../functions.php?msg=sucesso&user=$user");
+				} else if($perm == 0) {
+					header("location: ../functions copy.php?msg=sucesso&user=$user&noperm##");
+				}
 			}
 		}
-	}
-	if($erro == 'erro') {
-		header("location: ../weg.php?msg=erro&user=$user");
+
 		$conexao = "fracasso";
 	}
+		
+	
 }
 ?>

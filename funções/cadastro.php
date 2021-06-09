@@ -24,12 +24,15 @@
 		margin-left:100px;
 	}
 
-	#menu > h1{
+	#menu > a > h1{
 		font-style: italic;
 		font-weight: 900;	
 		font-family: 'Roboto', sans-serif;
 		font-size:  40px;
 		color:white;
+	}
+	#menu > a {
+		text-decoration:none;
 	}
 
 	input {
@@ -159,20 +162,41 @@
 		right:50px;
 		top:-40px;
 	}
+	
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<?php if(isset($_GET["msg"])) {
+	if($_GET["msg"] == 'erro') {
+	echo "
+	<html>
+	<script>
+		alert('###### ERRO AO INSERIR ######');
+		</script>
+	</html>	";
+	} else if($_GET["msg"] == 'sucesso') {
+		echo "
+		<html>
+		<script>
+			alert('###### SUCESSO AO INSERIR ######');
+			</script>
+		</html>	";
+	}
+}
+$user = $_GET["user"];
+?>
 <body class="bg-dark text-white">	
 	<div id="menu">
-	<a href="../functions.php" ><div id="arrow"></div></a>
+		<a href="../functions.php?user=$user">
 		<img src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
+		</a>
 	</div>
 		<div id="linha">
 		</div>
 		<div id="img">
-			<img src="../imgs/sign-in 1.svg">
+			<img src="../imgs/sign-in 1.svg" href="../weg.php">
 		</div>
 	<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php'>
 	<div class="container">
@@ -184,6 +208,7 @@
 					<legend id="select">PERMISSÃO</legend>
 					<input type="button" id="admin" name="permission" value="admin" onclick="selected('admin', 'cliente')">
 					<input type="button" id="cliente" name="permission" value="cliente" onclick="selected('cliente', 'admin')">
+					<input type="hidden" id="perm" name="perm" value="">
 					<img id="eye" onclick="mostrarSenha()" src="../imgs/eye.png">
 					<br>
 				<input type="submit" name="inserir" value="CADASTRAR">
@@ -202,10 +227,15 @@
 					tipo.type = "password";
 				}
 			}
+			var valor;
 			function selected(x, y) {
 				document.getElementById(x).style.background = "black";
 				document.getElementById(y).style.background = "green";
-			}
+
+				valor = document.getElementById(x).value;
+
+				document.getElementById("perm").value = valor;
+			}	
 		</script>
 </body>
 </html>
