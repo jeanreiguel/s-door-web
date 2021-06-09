@@ -81,6 +81,7 @@ echo"<body class='row justify-content-lg mb-2 bg-dark text-white'>	";
 			<thead>
 			<tr>
 			<th scope='col'><p>CÓDIGO</p></th>
+			<th scope='col'><p>MÉTODO</p></th>
 			<th scope='col'><p>HORÁRIO</p></th>
 			<th scope='col'><p>SITUAÇÃO</p></th>
 			</tr>
@@ -92,13 +93,14 @@ echo"<body class='row justify-content-lg mb-2 bg-dark text-white'>	";
 			echo "
 			<tr> 
 			<th scope='row'>
-			<p>" . $row["codUsuario"]. "</p></th>
+			<p>" . $row["Usuario"]. "</p></th>
+			<td><p>" . $row["metodo"]. "</p></td>
 			<td><p>" . $row["hora_e_data"]. "</p></td> 
 			<td><p>" . $row["situacao"]. "</p></td> 
 			</tr>
-			</tbody>";
+			";
 			}
-			echo "</table></div>";
+			echo "</tbody></table></div>";
 	}
 }
 	

@@ -88,7 +88,7 @@ $db = "portaiot";
  
 $conn = new mysqli($servername, $username, $password, $db);
 
-$sql = ("SELECT codUsuario, nome, senha, dentro FROM usuarios WHERE permissao = TRUE");
+$sql = ("SELECT codUsuario, nome, senha, cartao FROM usuarios WHERE permissao = TRUE");
 	
 $result = $conn->query($sql);
 
@@ -105,7 +105,8 @@ echo "
       <th scope='col'><p>CÓDIGO</p></th>
       <th scope='col'><p>NOME</p></th>
       <th scope='col'><p>SENHA</p></th>
-	  <th scope='col'><p>DENTRO</p></th>
+	  <th scope='col'><p>CARTAO</p></th>
+	  <th scope='col'><p>EDITAR</p></th>
     </tr>
   </thead>
   <tbody>";
@@ -114,10 +115,15 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     echo "
 	
+	<form method='POST' name='delete' action='../acesso/deletar.php'
 	<tr> <th scope='row'>
 	<p>" . $row["codUsuario"]. "</p></th>
-	<td><p>" . $row["nome"]. "</p></td> <td><p>" . $row["senha"]. "</p></td>
-	<td><p>" . $row["dentro"]. "</p></td>
+	<td><p>" . $row["nome"]. "</p></td> 
+	<td><p>" . $row["senha"]. "</p></td>
+	<td><p>" . $row["cartao"]. "</p></td>
+	<input type='hidden' name='user' value='.$row[codUsuario]'>
+	<td><input type='submit' name='editar' value='EDITAR' action='editar.php'></td>
+	</form>
 	</tr>
 	</tbody>";
 	}
@@ -132,7 +138,7 @@ if ($result->num_rows > 0) {
 				<label> NA COLUNA - </label>
 				<input type='submit' name='coluna' value='nome'>
 				<input type='submit' name='coluna' value='senha'>
-				<input type='submit' name='coluna' value='dentro'>
+				<input type='submit' name='coluna' value='cartao'>
 		</form> 
 	</body>
 </html>

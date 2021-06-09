@@ -17,12 +17,7 @@ $conn = new mysqli($servername, $username, $password, $db);
 		header("location: ../funções/edicao.php");	
 	 
   } else {
-		echo "Error: 
-	  <html>
-	  <script>
-		  alert('###### ERRO AO EDITAR ######'<br>. $sql . '<br>' . mysqli_error($conn););
-		  </script>
-	  </html>	";
+		
   }
   $conn->close();
 ?>

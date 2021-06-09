@@ -111,6 +111,16 @@
 		margin-left:49%;
 		margin-top:150px;
 	}
+
+	#eye{
+		right:155px;
+		top:362px;
+		width: 20px;
+		color: rgba(166, 166, 166);
+		cursor: pointer;
+		position: absolute;
+	}
+
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -118,6 +128,7 @@
 </head>
 
 <?php
+
 $user = "";
 $conexao = "";
 
@@ -138,8 +149,8 @@ if(isset($_GET['msg'])) {
 		$conexao = "fracasso";
 	}
 }
-if(isset($_POST["usuario"])) {
-	$user = $_GET["usuario"];
+if(isset($_POST["user"])) {
+	$user = $_GET["user"];
 }
 ?>
 
@@ -149,10 +160,13 @@ if(isset($_POST["usuario"])) {
 				<legend id="legend">LOGIN</legend>
 			<div id="legend">
 				<label id ="usuario">USUÁRIO</label>
-					<input class="input" type='text' name='usuario' value="<?php echo $user ?>" placeholder='Digite seu nome'>
+					<input class="input" type='text' name='user' value="<?php echo $user ?>" placeholder='Digite seu nome'>
 				<label id="senha">SENHA</label>
-					<input class="input2" type="password" name="senha"  placeholder="Digite sua senha" class="<?php echo $conexao?>">
-					<input id="logar" type="submit" name="enviar" value="LOGAR">	
+					<input id='senha' type='password' name='senha' placeholder='senha'><br>
+					<img id="eye" onclick="mostrarSenha()" src="../imgs/eye.png">
+					<input id='senha' class="input2" type="password" name="senha"  placeholder="Digite sua senha" class="<?php echo $conexao?>">
+					<img id="eye" onclick="mostrarSenha()" src="imgs/eye.png">	
+					<input id="logar" type="submit" name="enviar" value="LOGAR">
 			</div>
 		</div>
 		<div id="linha">
@@ -160,5 +174,19 @@ if(isset($_POST["usuario"])) {
 		<div id="logo">
 			<img src="imgs/smart-lock.svg">
 		</div>
+
+		<script>
+			function mostrarSenha(){
+				var tipo = document.getElementById("senha");
+				var icon = document.getElementById("eye");
+				if(tipo.type == "password"){
+					icon.src = "imgs/eye-off.png";
+					tipo.type = "text";
+				}else{
+					icon.src = "imgs/eye.png";
+					tipo.type = "password";
+				}
+			}
+		</script>
 </body>
 </html>

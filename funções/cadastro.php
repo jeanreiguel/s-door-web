@@ -51,7 +51,7 @@
 		background: #479f76;
 		color: white;
 		transition: all .3s ease-in-out;
-		margin-top:15px;
+		margin-top:-10px;
 	}
 
 	input[type="submit"]:hover {
@@ -59,13 +59,24 @@
 	}
 
 	#campos{
-		margin-top:100px;
+		margin-top:70px;
 		font-size: 20px;
+	}
+
+	#cadastra{
+		width: 350px;
+		margin-left: 800px;
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
 	}
 
 	#eye{
 		right:155px;
-		top:330px;
+		top:333px;
+		width: 20px;
 		color: rgba(166, 166, 166);
 		cursor: pointer;
 		position: absolute;
@@ -117,6 +128,11 @@
 		align-items: center;
 		justify-content: flex-start;
 	}
+	#select {
+		font-size:16px;
+		margin-left:200px;
+		margin-bottom:15px;
+	}
 	#arrow {
 		height:20px;
 		width:20px;
@@ -124,6 +140,24 @@
 		left:50px;
 		top:30px;
 		background-image:url("../imgs/left-arrow.svg")
+	}
+	input[type=button] {
+	border: 1px solid;
+	border-radius:2px;
+	padding-left: 0.3em;
+	padding-right:0.3em;
+	background:#479f76;
+	color:black;
+	-webkit-appearance: none;
+	position:relative;
+	}
+	#admin {
+		left:50px;
+		top:-7px;
+	}
+	#cliente {
+		right:50px;
+		top:-40px;
 	}
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -143,9 +177,13 @@
 	<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php'>
 	<div class="container">
 		<legend id="legend">CADASTRO DE USUÁRIO</legend>
-			<div id="legend">
+			<div id="cadastra">
 					<input type='text' name='nome' placeholder='nome'><br>
 					<input id='senha' type='password' name='senha' placeholder='senha'><br>
+					<input type='text' name='cartao' placeholder='cartao'><br>
+					<legend id="select">PERMISSÃO</legend>
+					<input type="button" id="admin" name="permission" value="admin" onclick="selected('admin', 'cliente')">
+					<input type="button" id="cliente" name="permission" value="cliente" onclick="selected('cliente', 'admin')">
 					<img id="eye" onclick="mostrarSenha()" src="../imgs/eye.png">
 					<br>
 				<input type="submit" name="inserir" value="CADASTRAR">
@@ -163,6 +201,10 @@
 					icon.src = "../imgs/eye.png";
 					tipo.type = "password";
 				}
+			}
+			function selected(x, y) {
+				document.getElementById(x).style.background = "black";
+				document.getElementById(y).style.background = "green";
 			}
 		</script>
 </body>

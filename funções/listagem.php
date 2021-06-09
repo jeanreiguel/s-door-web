@@ -68,7 +68,7 @@ $password = "";
 $db = "portaiot";
 $conn = new mysqli($servername, $username, $password, $db);
 
-$sql = ("SELECT codUsuario, nome, senha, dentro FROM usuarios WHERE permissao = TRUE");
+$sql = ("SELECT codUsuario, nome, senha, cartao FROM usuarios WHERE permissao = TRUE");
 echo"<body class='row justify-content-lg mb-2 bg-dark text-white'>	";
 $result = $conn->query($sql);
 
@@ -85,7 +85,7 @@ echo "
       <th scope='col'><h1>CÓDIGO</h1></th>
       <th scope='col'><h1>NOME</h1></th>
       <th scope='col'><h1>SENHA</h1></th>
-	  <th scope='col'><h1>DENTRO</h1></th>
+	  <th scope='col'><h1>CARTÃO</h1></th>
 	  <th scope='col'><h1>DELETAR</h1></th>
     </tr>
   </thead>
@@ -99,7 +99,7 @@ if ($result->num_rows > 0) {
 	<p>" . $row["codUsuario"]. "</p></th>
 	<td><p>" . $row["nome"]. "</p></td>
 	<td><p>" . $row["senha"]. "</p></td>
-	<td><p>" . $row["dentro"]. "</p></td>
+	<td><p>" . $row["cartao"]. "</p></td>
 	<td><input type='submit' name='deletar' value='$row[codUsuario]' action='deletar.php'></td>
 	</form>
 	</tr>
