@@ -1,6 +1,10 @@
 <html>
 <head>
 <style>
+	* {
+		padding:0;
+		margin:0;
+	}
 	body{
 		display: flex;
 		flex-direction: column;
@@ -165,9 +169,8 @@
 	p {
 		color: white;
 	}
-	
-	#tablea {
-        width:60%;
+	#table {
+        width:20%;
 		margin-top:5%;
 		margin-left:15%;
     }
@@ -178,10 +181,8 @@
         color: black;
     }
 </style>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <?php 
 $servername = "localhost";
 $username = "root";
@@ -209,16 +210,14 @@ if(isset($_GET["msg"])) {
 }
 $user = $_GET["user"];
 ?>
-<body class="bg-dark text-white">	
+<body>	
 	<div id="menu">
 		<a href="../functions.php?user=$user">
 		<img src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 		</a>
-	</div>
-		<div id="linha">
-		</div>
-<?phP
+	</div>	
+<?php
 
 $sql = ("SELECT codUsuario, nome, senha, cartao FROM usuarios WHERE permissao = TRUE");
 	
@@ -227,15 +226,15 @@ $result = $conn->query($sql);
 $user = $_GET["user"];
 
 echo "
-	<div  id='tablea'>
-	<table class='table'>
+	<div  id='table'>
+	<table>
 	<thead>
     <tr>
-      <th scope='col'><p>CÓDIGO</p></th>
-      <th scope='col'><p>NOME</p></th>
-      <th scope='col'><p>SENHA</p></th>
-	  <th scope='col'><p>CARTAO</p></th>
-	  <th scope='col'><p>EDITAR</p></th>
+      <th ><p>CÓDIGO</p></th>
+      <th ><p>NOME</p></th>
+      <th ><p>SENHA</p></th>
+	  <th ><p>CARTAO</p></th>
+	  <th ><p>EDITAR</p></th>
     </tr>
   </thead>
   <tbody>";
@@ -245,8 +244,8 @@ if ($result->num_rows > 0) {
     echo "
 	
 	<form method='POST' name='editar' action='../acesso/editar.php'
-	<tr> <th scope='row'>
-	<p>" . $row["codUsuario"]. "</p></th>
+	<tr> 
+	<th><p>" . $row["codUsuario"]. "</p></th>
 	<td><p>" . $row["nome"]. "</p></td> 
 	<td><p>" . $row["senha"]. "</p></td>
 	<td><p>" . $row["cartao"]. "</p></td>
@@ -256,7 +255,8 @@ if ($result->num_rows > 0) {
 	</tr>
 	</tbody>";
 	}
-	echo "</table></div>";
+	echo "</table></div><div id='linha'>
+	</div>";
 }
 ?>			
 	<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php'>
