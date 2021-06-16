@@ -1,0 +1,100 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;	
+}
+#menu{
+    width:100%;
+    height:70px;
+    background-color: #479f76;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu > img{
+    width:70px;
+    height:70px;
+    margin-left:100px;
+}
+
+#menu > h1{
+    font-style: italic;
+    font-weight: 900;	
+    font-family: 'Roboto', sans-serif;
+    font-size:  40px;
+    color:white;
+}
+
+input {
+    background: #161923;
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+    outline:none;
+    color: rgba(166, 166, 166);
+    font-size: 2rem;
+    border: 1px solid #040B18;
+    border-radius: 8px;
+}
+
+input[type="submit"] {
+    width: 250px;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    border-radius: 32px;
+    background: #479f76;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background: #0f5132;
+}
+
+#cadastra{
+    margin-top: 25%;
+}
+
+label{
+    margin-top:15px;
+}
+
+#legend{
+    width: 350px;
+    margin-left: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#select {
+    font-size:16px;
+    margin-left:200px;
+    margin-bottom:15px;
+}
+#arrow {
+    height:20px;
+    width:20px;
+    position:absolute;
+    left:50px;
+    top:30px;
+    background-image:url("../imgs/left-arrow.svg")
+}
+input[type=button] {
+    border: 1px solid;
+    border-radius:2px;
+    padding-left: 0.3em;
+    padding-right:0.3em;
+    background:#479f76;
+    color:white;
+    font-size: 20px;
+}
+
+#inputs {
+text-align: center;
+}

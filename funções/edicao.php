@@ -218,46 +218,8 @@ $user = $_GET["user"];
 		</a>
 	</div>	
 <?php
-
-$sql = ("SELECT codUsuario, nome, senha, cartao FROM usuarios WHERE permissao = TRUE");
-	
-$result = $conn->query($sql);
-
 $user = $_GET["user"];
 
-echo "
-	<div  id='table'>
-	<table>
-	<thead>
-    <tr>
-      <th ><p>CÓDIGO</p></th>
-      <th ><p>NOME</p></th>
-      <th ><p>SENHA</p></th>
-	  <th ><p>CARTAO</p></th>
-	  <th ><p>EDITAR</p></th>
-    </tr>
-  </thead>
-  <tbody>";
-if ($result->num_rows > 0) {
-
-  while($row = $result->fetch_assoc()) {
-    echo "
-	
-	<form method='POST' name='editar' action='../acesso/editar.php'
-	<tr> 
-	<th><p>" . $row["codUsuario"]. "</p></th>
-	<td><p>" . $row["nome"]. "</p></td> 
-	<td><p>" . $row["senha"]. "</p></td>
-	<td><p>" . $row["cartao"]. "</p></td>
-	<input type='hidden' name='user' value='.$row[codUsuario]'>
-	<td><input type='submit' name='editar' value='EDITAR'></td>
-	</form>
-	</tr>
-	</tbody>";
-	}
-	echo "</table></div><div id='linha'>
-	</div>";
-}
 ?>			
 	<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php'>
 	<div class="container">
@@ -272,7 +234,7 @@ if ($result->num_rows > 0) {
 					<input type="hidden" id="perm" name="perm" value="">
 					<img id="eye" onclick="mostrarSenha()" src="../imgs/eye.png">
 					<br>
-				<input type="submit" name="inserir" value="CADASTRAR">
+				<input type="submit" name="inserir" valu	e="CADASTRAR">
 			</div>
 	</div>		
 	</form>

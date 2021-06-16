@@ -41,14 +41,44 @@
 	}
 	#scroll {
 		width:60%;
+		margin-top:15%;
 		height:400px;
 		overflow:scroll;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 		border-bottom: 2px solid #009879;
 	}
+	#menu{
+		width:100%;
+		height:70px;
+		background-color: #479f76;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#menu > img{
+		width:70px;
+		height:70px;
+		margin-left:100px;
+	}
+
+	#menu > h1{
+		font-style: italic;
+		font-weight: 900;	
+		font-family: 'Roboto', sans-serif;
+		font-size:  40px;
+		color:white;
+	}
 	</style>
 </head>
 <body>
+<div id="menu">
+		<a href="../functions.php?user=$user">
+		<img src="../imgs/smart-lock.svg">
+	<h1>SENAI</h1>
+	</a>
+</div>	
 <div id="scroll">
 	<table id='table'>
 		<thead>

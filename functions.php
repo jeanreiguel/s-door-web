@@ -1,7 +1,7 @@
 <html>
 <head>
 <style>	
-	body{
+		body{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -14,14 +14,17 @@
 		align-items: center;
 		justify-content: center;
 		font-size: 25px;
+		margin-top:15%;
 	}
 
 	#opcoes{
-		margin-top:100px;
+		margin-top:50px;
 		width: 500px;
 		height: 450px;
-		background-color: #00473B;
+		background-color: rgb(240, 240, 240);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		border-radius:20px;
+		color: rgb(120, 120, 120);
 	}
 
 	legend{
@@ -83,11 +86,12 @@
 	#estadoporta {
 		height:200px;
 		width:300px;
-		background-color: #00473B;
+		background-color: rgb(240, 240, 240);
+		color: rgb(120, 120, 120);
 		position: absolute;
 		right:50;
 		top:100;
-		border-radius:10%;
+		border-radius:20px;
 		padding:15px;
 	}
 	#camposstatus{
@@ -97,7 +101,7 @@
 		justify-content: space-evenly;
 		font-size: 25px;
 	}
-	#estadoporta h1 {
+	#estadoporta > h1 {
 		margin:30px;
 		font-size:20px;
 		text-align:center;
@@ -126,7 +130,7 @@ if(isset($_GET['msg'])) {
 	}
 }
 	?>
-<body class="bg-dark text-white">
+<body class="text-white">
 	<div id="menu">
 		<img src="imgs/smart-lock.svg">
 		<h1>SENAI</h1>
@@ -134,18 +138,18 @@ if(isset($_GET['msg'])) {
 	<form method='GET' name='selecao' action='acesso/porta.php'>
 	<div id="estadoporta">
 	<h1>ESTADO ATUAL ********</h1>
-	<fieldset id="camposstatus">
-		<input type="hidden" name="user" value=<?php echo $user ?>>	
-		<input type="submit" name="estado" value="ABRIR" class="itens">
-		<input type="submit" name="estado" value="FECHAR" class="itens">
+		<fieldset id="camposstatus">
+			<input type="hidden" name="user" value=<?php echo $user ?>>	
+			<input type="submit" name="estado" value="ABRIR" class="itens">
+			<input type="submit" name="estado" value="FECHAR" class="itens">
 		</fieldset>
 	</div>
 	</form>
 	<form method='POST' name='selecao' action='acesso/selecao.php?user=<?php echo $user ?>'>
 	<div id="opcoes">
-		<fieldset id="campos">
-			<legend>OPÇÕES</legend>
-			
+		<legend>OPÇÕES</legend>
+
+		<fieldset id="campos">			
 			<label>LISTAGEM</label>
 				<input type='submit' name='opcao' value='listagem'>
 			<label>CADASTRO</label>

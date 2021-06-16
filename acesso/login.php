@@ -28,13 +28,14 @@ if(isset($_POST["user"]) && isset($_POST["senha"])){
 					header("location: ../functions.php?msg=sucesso&user=$user");
 				} else if($perm == 0) {
 					header("location: ../functions copy.php?msg=sucesso&user=$user&noperm##");
-				}
+				} 
 			}
 		}
-
+		if($erro != 'correto') {
+		header("location: ../weg.php?msg=erro");
 		$conexao = "fracasso";
+		}
 	}
-		
-	
+
 }
 ?>

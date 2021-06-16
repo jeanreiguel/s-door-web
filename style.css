@@ -1,0 +1,46 @@
+.fracasso {
+    border-style:solid;
+    border-color:coral;
+}	
+
+#inputs {
+    text-align: center;
+    float: right;
+    margin-top: -30%;
+    margin-right: 10%;
+}
+
+#logar{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 80px;
+}
+
+#logo {
+    margin-left: 40px;
+    margin-top: 70px;
+    text-align: left;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    border: none;
+    border-radius: 32px;
+    background: #479f76;
+    color: white;
+    font-size: 1.1rem;
+    transition: all .3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background: #0f5132;
+}
+#linha{
+    width: 3px;
+    border-style: solid;
+    border-width: 200px 2px;
+    color: #161923;
+    margin-left:49%;
+    margin-top: -450px;
+}
