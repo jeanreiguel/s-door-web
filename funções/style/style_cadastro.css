@@ -14,11 +14,8 @@ body{
     align-items: center;
     justify-content: center;
 }
-
-#menu > img{
-    width:70px;
-    height:70px;
-    margin-left:100px;
+#menu > img {
+    display: none;
 }
 
 #menu > h1{
@@ -77,14 +74,7 @@ label{
     margin-left:200px;
     margin-bottom:15px;
 }
-#arrow {
-    height:20px;
-    width:20px;
-    position:absolute;
-    left:50px;
-    top:30px;
-    background-image:url("../imgs/left-arrow.svg")
-}
+
 input[type=button] {
     border: 1px solid;
     border-radius:2px;

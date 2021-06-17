@@ -6,6 +6,8 @@ $db = "portaiot";
  
 $conn = new mysqli($servername, $username, $password, $db);
 	
+$user = $_GET["user"];
+
 	$nome = $_POST["nome"];
 	$senha = $_POST["senha"];
 	$cartao = $_POST["cartao"];
@@ -17,15 +19,15 @@ echo "
 		</script>
 	</html>	";
 	if($permission == "admin") {
-		$sql = ("INSERT INTO usuarios VALUES (null,'$nome',md5('$senha'),'$cartao',true)");
+		$sql = ("INSERT INTO usuarios VALUES (null,'$nome','$senha','$cartao',true)");
 	} else if ($permission == "cliente") {
-		$sql = ("INSERT INTO usuarios VALUES (null,'$nome',md5('$senha'),'$cartao',false)");
+		$sql = ("INSERT INTO usuarios VALUES (null,'$nome','$senha','$cartao',false)");
 	}
 	
 	if (mysqli_query($conn, $sql)) {
-	header("location: ../funções/cadastro.php?msg=sucesso");
+	header("location: ../funções/cadastro.php?user=$user&msg=sucesso");
 } else {
-	  header("location: ../funções/cadastro.php?msg=erro");
+	  header("location: ../funções/cadastro.php?msg=erro&user=$user");
 }
 	
 ?>

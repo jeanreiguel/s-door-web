@@ -160,5 +160,6 @@ if(isset($_GET['msg'])) {
 				<input type='submit' name='opcao' value='logs'>
 		</fieldset>
 	</div>
+	</form>	
 </body>
 </html>

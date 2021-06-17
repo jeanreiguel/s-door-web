@@ -12,7 +12,7 @@ $result = $conn->query($sql);
 
 if(isset($_POST["user"]) && isset($_POST["senha"])){
 	$user = $_POST["user"];
-	$senha = md5($_POST["senha"]);
+	$senha = $_POST["senha"];
 	
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {

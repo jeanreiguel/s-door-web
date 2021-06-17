@@ -22,22 +22,22 @@
 		</html>	";
 	}
 }
+if(isset($_GET["user"])) {
 $user = $_GET["user"];
+}
 ?>
 <body class="text-white">	
 	<div id="menu">
-	<a href="../functions.php" ><div id="arrow"></div></a>
 		<img src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 	</div>
-	<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php'>
 	<div class="container">
 		<legend id="legend">CADASTRO DE USUÁRIO</legend>
 		<div id="inputs">
-		<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php' class="form">
+		<form id="campos" method='POST' name='insert' action='../acesso/cadastrar.php?user=<?php echo $user ?>'>
 			<div id="cadastra">
 				<div class="form__div">
-					<input class="form__input" type='text' name='user' placeholder=" ">
+					<input class="form__input" type='text' name='nome' placeholder=" ">
 					<label for="" class="form__label">NOME</label>
 				</div>
 				<div class="form__div">
@@ -45,9 +45,10 @@ $user = $_GET["user"];
 					<label for="" class="form__label">SENHA</label>
 				</div>
 				<div class="form__div">
-					<input class="form__input" type='text' name='user' placeholder=" ">
+					<input class="form__input" type='text' name='cartao' placeholder=" ">
 					<label for="" class="form__label">CARTÃO</label>
 				</div>
+				
 					<legend id="select">PERMISSÃO</legend>
 					<input type="button" id="admin" name="permission" value="admin" onclick="selected('admin', 'cliente')">
 					<input type="button" id="cliente" name="permission" value="cliente" onclick="selected('cliente', 'admin')">

@@ -19,7 +19,7 @@ $user = $_GET["user"];
 			header("location: ../funções/logs.php?user=$user");
 		}
 		else {
-			header("location: ../functions.php?msg=erro&usuario=$user");
+			header("location: ../functions.php?msg=erro&user=$user");
 		}
 }
 
