@@ -6,52 +6,35 @@ body{
     font-size: 25px;	
 }
 #menu{
-    width:100%;
-    height:70px;
-    background-color: #479f76;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
+		width:100%;
+		height:70px;
+		background-color: #479f76;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
 
+	#imagem{
+		width:70px;
+		height:70px;
+		margin-left:100px;
+	}
 
-#imagem{
-    width:70px;
-    height:70px;
-    margin-left:100px;
-}
-#menu > h1{
-    font-style: italic;
-    font-weight: 900;	
-    font-family: 'Roboto', sans-serif;
-    font-size:  40px;
-    color:white;
-}
+	#menu > h1{
+        font-style: italic;
+        font-weight: 900;	
+        font-family: 'Roboto', sans-serif;
+        font-size:  40px;
+        color:white;
+    }
 input {
-    background: #161923;
+    border: hidden;
     padding: 0 0.5rem;
     margin-top: 1rem;
     outline:none;
     color: rgba(166, 166, 166);
     font-size: 2rem;
-    border: 1px solid #040B18;
-    border-radius: 8px;
-}
-
-input[type="submit"] {
-    width: 250px;
-    font-size: 25px;
-    cursor: pointer;
-    border: none;
-    border-radius: 32px;
-    background: #479f76;
-    color: white;
-    transition: all .3s ease-in-out;
-}
-
-input[type="submit"]:hover {
-    background: #0f5132;
 }
 
 #edita{
@@ -89,6 +72,7 @@ input[type=button] {
 text-align: center;
 }
 #table {
+    display: table;
     width:100%;
     max-height:400px;
     border-collapse:collapse;
@@ -100,6 +84,7 @@ padding: 12px 15px;
 }
 
 #table tbody tr {
+display: table-row;
 border-bottom: 1px solid #dddddd;
 }
 .selected_row {
@@ -108,10 +93,13 @@ border-bottom: 1px solid #dddddd;
     background-color: #f3f3f3;
 }
 #table tbody td {
+    display: table-cell;
+    width: auto;
     border: 1px solid #dddddd;
     }
-
 thead {
+    display: table-header-group;
+    vertical-align: middle;
     background-color: #009879;
     height:50px;
     color: #ffffff;
@@ -119,14 +107,17 @@ thead {
     font-weight: bold;
 }
 tbody {
+    display: table-row-group;
+    vertical-align: middle;
     color: #040B18;
 }
 #scroll {
     display: flex;
     margin-top:5%;
-    width: 60%;
-    height:430px;
-    overflow-y:scroll;
+    margin-left: 5%;
+    width: 92%;
+    height:450px;
+    overflow-y: scroll;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-bottom: 2px solid #009879;
 }
@@ -141,6 +132,10 @@ tbody {
 #aviso{
     color: rgb(204, 18, 18);
 }
-p {
+td > p {
     margin: 0;
+}
+.deletar{
+    margin: 0;
+    margin-left: 35%;
 }

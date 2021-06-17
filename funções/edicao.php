@@ -35,7 +35,7 @@ $user = $_GET["user"];
 ?>
 <body class="text-white">	
 	<div id="menu">
-			<img src="../imgs/smart-lock.svg">
+			<img id="imagem" src="../imgs/smart-lock.svg">
 			<h1>SENAI</h1>
 	</div>		
 	<div id="a">
@@ -53,7 +53,7 @@ $user = $_GET["user"];
 			<tbody>
 				<?php
 
-				$sql = ("SELECT codUsuario, nome, senha, cartao, permissao FROM usuarios WHERE permissao = TRUE");
+				$sql = ("SELECT codUsuario, nome, senha, cartao, permissao FROM usuarios");
 				$result = $conn->query($sql);
 
 						if ($result->num_rows > 0) {
@@ -85,7 +85,7 @@ $user = $_GET["user"];
 	<div class="container">
 		<legend id="legend"><p>EDITAR DE USUÁRIO</p></legend>
 		<div id="inputs">
-		<form id="campos" method='POST' name='insert' action='../acesso/editar.php?user=<?php echo $user ?>' class="form">
+		<form id="campos" method='POST' name='insert' action='../acesso/editar.php?user=<?php echo $user ?>'>
 			<div id="edita">
 				<div class="form__div">
 					<input class="form__input" type='text' name='nome' placeholder=" ">

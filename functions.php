@@ -2,10 +2,10 @@
 <head>
 <style>	
 		body{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 		font-size: 25px;	
 	}
 	#campos{
@@ -18,7 +18,7 @@
 	}
 
 	#opcoes{
-		margin-top:50px;
+		margin-top:2%;
 		width: 500px;
 		height: 450px;
 		background-color: rgb(240, 240, 240);

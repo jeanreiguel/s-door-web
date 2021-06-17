@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 body{
     display: flex;
     flex-direction: column;
@@ -14,9 +18,6 @@ body{
     align-items: center;
     justify-content: center;
 }
-#menu > img {
-    display: none;
-}
 
 #menu > h1{
     font-style: italic;
@@ -25,7 +26,11 @@ body{
     font-size:  40px;
     color:white;
 }
-
+#imagem{
+    width:70px;
+    height:70px;
+    margin-left:100px;
+}
 input {
     background: #161923;
     padding: 0 0.5rem;
@@ -51,18 +56,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: #0f5132;
 }
-
-#cadastra{
-    margin-top: 25%;
-}
-
 label{
     margin-top:15px;
 }
 
 #legend{
     width: 350px;
-    margin-left: 800px;
+    margin:auto;
+    margin-bottom: 0;
+    color:black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,9 +72,9 @@ label{
 }
 
 #select {
+    margin-top: 10px;
     font-size:16px;
-    margin-left:200px;
-    margin-bottom:15px;
+    color: black;   
 }
 
 input[type=button] {
@@ -83,8 +85,26 @@ input[type=button] {
     background:#479f76;
     color:white;
     font-size: 20px;
+    margin: 0;
 }
 
 #inputs {
+width: 70%;
+margin:auto;
+display: flex;
+justify-content: center;
 text-align: center;
+}
+#cadastrar {
+    display: flex;
+    border-radius: 32px;
+    border:1px solid #80868B;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+    width: 40%;
+    height: 480px;
 }

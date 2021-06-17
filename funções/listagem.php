@@ -1,67 +1,8 @@
 <html>
 <head>
-<style>
-p {
-	color: whitesmoke;
-}
-input[type="submit"] {
-		cursor: pointer;
-		border: none;
-		border-radius: 2px;
-		background: #479f76;
-		color: white;
-		font-size: 1.1rem;
-		transition: all .3s ease-in-out;
-	}
-	#table {
-        width:70%;
-		margin-left:15%;
-    }
-	thead {
-		background: #198754;
-	}
-	thead h1 {
-        color: black;
-		font-size:20px;
-    }
-    thead p {
-        color: white;
-    }
-	#arrow {
-		height:20px;
-		width:20px;
-		position:absolute;
-		left:50px;
-		top:30px;
-		background-image:url("../imgs/left-arrow.svg")
-	}
-	#menu{
-		width:100%;
-		height:70px;
-		background-color: #479f76;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	}
-
-	#menu > img{
-		width:70px;
-		height:70px;
-		margin-left:100px;
-	}
-
-	#menu > a > h1{
-		font-style: italic;
-		font-weight: 900;	
-		font-family: 'Roboto', sans-serif;
-		font-size:  40px;
-		color:white;
-	}
-	#menu > a {
-		text-decoration:none;
-	}
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="style/style_listagem.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <?php
@@ -70,50 +11,70 @@ $username = "root";
 $password = "";
 $db = "portaiot";
 $conn = new mysqli($servername, $username, $password, $db);
-
-$sql = ("SELECT codUsuario, nome, senha, cartao FROM usuarios WHERE permissao = TRUE");
-echo"<body class='row justify-content-lg mb-2 bg-dark text-white'>	";
-$result = $conn->query($sql);
-
 $user = $_GET["user"];
-
-echo " 
-<div id='menu'>
-		<a href='../functions.php?user=$user'>
-		<img src='../imgs/smart-lock.svg'>
-		<h1>SENAI</h1>
-		</a>
-	</div>
-	<div id='table'>
-	<table class='table'>
-	<thead>
-    <tr>
-      <th scope='col'><h1>CÓDIGO</h1></th>
-      <th scope='col'><h1>NOME</h1></th>
-      <th scope='col'><h1>SENHA</h1></th>
-	  <th scope='col'><h1>CARTÃO</h1></th>
-	  <th scope='col'><h1>DELETAR</h1></th>
-    </tr>
-  </thead>
-  <tbody>";
-if ($result->num_rows > 0) {
-
-  while($row = $result->fetch_assoc()) {
-    echo "
-	<form method='POST' name='delete' action='../acesso/deletar.php'
-	<tr> <th scope='row'>
-	<p>" . $row["codUsuario"]. "</p></th>
-	<td><p>" . $row["nome"]. "</p></td>
-	<td><p>" . $row["senha"]. "</p></td>
-	<td><p>" . $row["cartao"]. "</p></td>
-	<td><input type='submit' name='deletar' value='$row[codUsuario]' action='deletar.php'></td>
-	</form>
-	</tr>
-	</tbody>";
-	}
-	echo "</table></div>";
-}
-echo "</body>";
-$conn->close();
 ?>
+<body class="text-white">	
+	<div id="menu">
+			<img id="imagem" src="../imgs/smart-lock.svg">
+			<h1>SENAI</h1>
+	</div>		
+	<div id="a">
+	<div id="scroll">
+		<table id='table'>
+			<thead>
+				<tr>
+					<th><p>CÓDIGO</p></th>
+					<th><p>NOME</p></th>
+					<th><p>SENHA</p></th>
+					<th><p>CARTÃO</p></th>
+					<th><p>PERMISSÃO</p></th>
+					<th><p>DELETAR</p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				$sql = ("SELECT codUsuario, nome, senha, cartao, permissao FROM usuarios");
+				$result = $conn->query($sql);
+
+						if ($result->num_rows > 0) {
+							while($row = $result->fetch_assoc()) {
+								
+								if($row["permissao"] == 1) {
+									$permissao = "Administrador";
+								} else if($row["permissao"] == 0) {
+									$permissao = "Cliente";
+								}
+								$password = str_repeat("*", strlen($row["senha"]) + 3); 
+								echo "
+								<tr class='row'>	
+								<td scope='col'>" . $row["codUsuario"]. "</td>
+								<td scope='col'><p>" . $row["nome"]. "</p></td>
+								<td scope='col'><p>" . $password . "</p></td>
+								<td scope='col'><p>" . $row["cartao"]. "</p></td>
+								<td scope='col'><p>" . $permissao . "</p></td>
+								<form method='POST' name='deletar' action='../acesso/deletar.php?user=$user'>
+								<input type='hidden' id='valor' name='row' value='$row[codUsuario]'>
+								<td scope='col'><input type='submit' class='deletar' value='X'></td>
+								</form>
+								</tr>";
+							}
+						}
+					$conn->close();
+					?>
+			</tbody>
+		</table>
+	</div>
+	</div>
+		<script>
+			var valor;
+			function selected(x, y) {
+				document.getElementById(x).style.background = "#479f76";
+				document.getElementById(y).style.background = "#969696";
+				valor = document.getElementById(x).value;
+
+				document.getElementById("perm").value = valor;
+			}	
+			
+		</script>
+	</body>
 </html>
