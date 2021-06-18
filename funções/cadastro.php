@@ -27,9 +27,12 @@ $user = $_GET["user"];
 }
 ?>
 <body class="text-white">	
+
 	<div id="menu">
+		<a href="../functions.php?user=<?php echo $user ?>">
 		<img id="imagem" src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
+		</a>
 	</div>
 	<div id="cadastrar">
 		<legend id="legend">CADASTRO DE USUÁRIO</legend>

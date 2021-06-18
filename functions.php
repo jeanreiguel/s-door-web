@@ -1,112 +1,6 @@
 <html>
 <head>
-<style>	
-		body{
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		font-size: 25px;	
-	}
-	#campos{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		font-size: 25px;
-		margin-top:15%;
-	}
-
-	#opcoes{
-		margin-top:2%;
-		width: 500px;
-		height: 450px;
-		background-color: rgb(240, 240, 240);
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		border-radius:20px;
-		color: rgb(120, 120, 120);
-	}
-
-	legend{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	label{
-		margin:10px;
-	}
-
-	input[type="submit"] {
-		width:200px;
-		cursor: pointer;
-		border: none;
-		border-radius: 5px;
-		background: #479f76;
-		color: white;
-		font-size: 1.1rem;
-		transition: all .3s ease-in-out;
-	}
-	#estadoporta input[type="submit"] {
-		width:90px;
-		cursor: pointer;
-		border: none;
-		border-radius: 5px;
-		background: black;
-		color: white;
-	}
-	input[type="submit"]:hover {
-		background: #0f5132;
-	}
-
-	#menu{
-		width:100%;
-		height:70px;
-		background-color: #479f76;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	}
-
-	#menu > img{
-		width:70px;
-		height:70px;
-		margin-left:100px;
-	}
-
-	#menu > h1{
-		font-style: italic;
-		font-weight: 900;	
-		font-family: 'Roboto', sans-serif;
-		font-size:  40px;
-		color:white;
-	}
-	#estadoporta {
-		height:200px;
-		width:300px;
-		background-color: rgb(240, 240, 240);
-		color: rgb(120, 120, 120);
-		position: absolute;
-		right:50;
-		top:100;
-		border-radius:20px;
-		padding:15px;
-	}
-	#camposstatus{
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-evenly;
-		font-size: 25px;
-	}
-	#estadoporta > h1 {
-		margin:30px;
-		font-size:20px;
-		text-align:center;
-	}
-</style>
+<link rel="stylesheet" href="style_menu.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <?php 
@@ -135,31 +29,33 @@ if(isset($_GET['msg'])) {
 		<img src="imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 	</div>
-	<form method='GET' name='selecao' action='acesso/porta.php'>
-	<div id="estadoporta">
-	<h1>ESTADO ATUAL ********</h1>
-		<fieldset id="camposstatus">
-			<input type="hidden" name="user" value=<?php echo $user ?>>	
-			<input type="submit" name="estado" value="ABRIR" class="itens">
-			<input type="submit" name="estado" value="FECHAR" class="itens">
-		</fieldset>
-	</div>
-	</form>
-	<form method='POST' name='selecao' action='acesso/selecao.php?user=<?php echo $user ?>'>
-	<div id="opcoes">
-		<legend>OPÇÕES</legend>
+	<div id="hold">
+		<form method='GET' name='selecao' action='acesso/porta.php'>
+		<div id="estadoporta">
+		<h1>ESTADO ATUAL ********</h1>
+			<fieldset id="camposstatus">
+				<input type="hidden" name="user" value=<?php echo $user ?>>	
+				<input type="submit" name="estado" value="ABRIR" class="itens">
+				<input type="submit" name="estado" value="FECHAR" class="itens">
+			</fieldset>
+		</div>
+		</form>
+		<form method='POST' name='selecao' action='acesso/selecao.php?user=<?php echo $user ?>'>
+		<div id="opcoes">
+			<legend>OPÇÕES</legend>
 
-		<fieldset id="campos">			
-			<label>LISTAGEM</label>
-				<input type='submit' name='opcao' value='listagem'>
-			<label>CADASTRO</label>
-				<input type='submit' name='opcao' value='cadastro'>
-			<label>EDIÇÃO</label>
-				<input type='submit' name='opcao' value='edicao'>
-			<label>LOGS</label>
-				<input type='submit' name='opcao' value='logs'>
-		</fieldset>
+			<fieldset id="campos">			
+				<label>LISTAGEM</label>
+					<input type='submit' name='opcao' value='listagem'>
+				<label>CADASTRO</label>
+					<input type='submit' name='opcao' value='cadastro'>
+				<label>EDIÇÃO</label>
+					<input type='submit' name='opcao' value='edicao'>
+				<label>LOGS</label>
+					<input type='submit' name='opcao' value='logs'>
+			</fieldset>
+		</div>
+		</form>	
 	</div>
-	</form>	
 </body>
 </html>

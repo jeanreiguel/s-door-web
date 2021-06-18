@@ -1,9 +1,9 @@
 <html>
 <head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style/style_edicao.css">
-<link rel="stylesheet" href="../input_style.css">
+<link rel="stylesheet" href="../input_style_full.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <?php 
@@ -35,9 +35,11 @@ $user = $_GET["user"];
 ?>
 <body class="text-white">	
 	<div id="menu">
-			<img id="imagem" src="../imgs/smart-lock.svg">
-			<h1>SENAI</h1>
-	</div>		
+		<a href="../functions.php?user=<?php echo $user ?>">
+		<img id="imagem" src="../imgs/smart-lock.svg">
+		<h1>SENAI</h1>
+		</a>
+	</div>
 	<div id="a">
 	<div id="scroll">
 		<table id='table'>
@@ -102,18 +104,20 @@ $user = $_GET["user"];
 				<div id="aviso">
 					<p>Selecione um cliente na tabela</p>
 				</div>
+				
 					<legend id="select">PERMISSÃO</legend>
 					<input type="button" id="admin" name="permission" value="admin" onclick="selected('admin', 'cliente')">
 					<input type="button" id="cliente" name="permission" value="cliente" onclick="selected('cliente', 'admin')">
 					<input type="hidden" id="perm" name="perm" value="">
 					<input type="hidden" id="cod" name="cod" value="">
 					<br>
-				<input type="submit" name="inserir" value="EDITAR">
-			</div>
-		</div>		
+				<input type="submit" id="edit" class="disabled" name="inserir" value="EDITAR" >
+			</div>	
 		</form>
-		</div>
+	</div>
 		<script>
+			var button = document.getElementById("edit");
+			button.disabled = true;
 			var valor;
 			function selected(x, y) {
 				document.getElementById(x).style.background = "#479f76";
@@ -124,8 +128,8 @@ $user = $_GET["user"];
 			}	
 			$('tr').click(function() { 
 				$(this).addClass('selected_row').siblings().removeClass('selected_row');
+				$('.disabled').addClass('enabled');
 				var row = $(this).find('td:first').html();
-
 				document.getElementById("aviso").style.display = "none";
 				document.getElementById("cod").value = row;
 			});
