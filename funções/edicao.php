@@ -90,15 +90,15 @@ $user = $_GET["user"];
 		<form id="campos" method='POST' name='insert' action='../acesso/editar.php?user=<?php echo $user ?>'>
 			<div id="edita">
 				<div class="form__div">
-					<input class="form__input" type='text' name='nome' placeholder=" ">
+					<input class="form__input" type='text' id='nome' name='nome' placeholder=" ">
 					<label for="" class="form__label">NOME</label>
 				</div>
 				<div class="form__div">
-					<input class="form__input" type="password" name="senha" placeholder=" ">
+					<input class="form__input" type="password" id='senha'name="senha" placeholder=" ">
 					<label for="" class="form__label">SENHA</label>
 				</div>
 				<div class="form__div">
-					<input class="form__input" type='text' name='cartao' placeholder=" ">
+					<input class="form__input" type='text' id='cartao' name='cartao' placeholder=" ">
 					<label for="" class="form__label">CARTÃO</label>
 				</div>
 				<div id="aviso">
@@ -111,11 +111,20 @@ $user = $_GET["user"];
 					<input type="hidden" id="perm" name="perm" value="">
 					<input type="hidden" id="cod" name="cod" value="">
 					<br>
-				<input type="submit" id="edit" class="disabled" name="inserir" value="EDITAR" >
+				<input type="submit" id="edit" class="disabled" name="inserir" value="EDITAR" onclick="formconf();">
 			</div>	
 		</form>
 	</div>
 		<script>
+			var row, row2, row4; 
+			function formconf() {
+				if(document.insert.nome.value == "") {
+					document.getElementById("nome").value = row2;
+				} 
+				if(document.insert.cartao.value == "") {
+					document.getElementById("cartao").value = parseInt(row4);
+				} 
+			}
 			var button = document.getElementById("edit");
 			button.disabled = true;
 			var valor;
@@ -123,13 +132,15 @@ $user = $_GET["user"];
 				document.getElementById(x).style.background = "#479f76";
 				document.getElementById(y).style.background = "#969696";
 				valor = document.getElementById(x).value;
-
 				document.getElementById("perm").value = valor;
 			}	
 			$('tr').click(function() { 
 				$(this).addClass('selected_row').siblings().removeClass('selected_row');
 				$('.disabled').addClass('enabled');
-				var row = $(this).find('td:first').html();
+				button.disabled = false;
+				row = parseInt($(this).find('td:first').text());
+				row2 = $(this).find('td:nth-child(2)').text();
+				row4 = $(this).find('td:nth-child(4)').text();
 				document.getElementById("aviso").style.display = "none";
 				document.getElementById("cod").value = row;
 			});

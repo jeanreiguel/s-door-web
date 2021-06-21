@@ -1,3 +1,4 @@
+
 body{
     display: flex;
     flex-direction: column;
@@ -101,41 +102,8 @@ height:60px;
 justify-content: space-between;
 font-size: 25px;
 }
-#estadoporta > h1 {
+#estadoporta > form > h1 {
 margin:20px;
 font-size:20px;
 text-align:center;
-}
-@media screen and (max-width:425px) {
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-font-size: 25px;	
-}
-#campos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    margin-top:10%;
-}
-#opcoes{
-    margin-top:2%;
-    width: 90%;
-    height: 450px;
-    background-color: rgb(240, 240, 240);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius:20px;
-    color: rgb(120, 120, 120);
-}
-#hold {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 }

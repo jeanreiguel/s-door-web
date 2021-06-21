@@ -45,6 +45,7 @@ body{
     border-radius: 32px;
     background: rgb(170, 170, 170);
     color: white;
+    transition: all .3s ease-in-out;
 }
 .enabled {
     width: 250px;
@@ -57,7 +58,7 @@ body{
     color: white;
     transition: all .3s ease-in-out;
 }
-.enabled    input[type="submit"]:hover {
+.enabled:hover {
     background: #0f5132;
 }
 

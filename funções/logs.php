@@ -31,7 +31,7 @@ $user = $_GET["user"];
 					<th><p>Situação</p></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id='scrollable'>
 				<?php
 				$sql = ("SELECT * FROM CONTROLE_ENTRADA_E_SAIDA");
 				$result = $conn->query($sql);
