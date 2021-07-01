@@ -1,11 +1,13 @@
 <?php
+#conexão com banco de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
 $db = "portaiot";
 	$conn = new mysqli($servername, $username, $password, $db);
 
-	$user = $_GET["user"];
+#deleta o usuário, funcionalidade que está na página de listagem
+$user = $_GET["user"];
 	$deletar = $_POST['row'];
 	
 	$sql = ("DELETE FROM usuarios WHERE codUsuario = $deletar ");

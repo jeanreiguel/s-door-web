@@ -13,11 +13,13 @@ $db = "portaiot";
 $conn = new mysqli($servername, $username, $password, $db);
 $user = $_GET["user"];
 ?>
+<!-- página de listagem de logs-->
 <body class="text-white">	
 	<div id="menu">
 		<a href="../functions.php?user=<?php echo $user ?>">
 		<img id="imagem" src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
+		<a href="weg.php" id="sair">Sair</a>
 		</a>
 	</div>		
 	<div id="a">
@@ -31,8 +33,9 @@ $user = $_GET["user"];
 					<th><p>Situação</p></th>
 				</tr>
 			</thead>
-			<tbody id='scrollable'>
+			<tbody>
 				<?php
+				#realiza a exibição dos dados
 				$sql = ("SELECT * FROM CONTROLE_ENTRADA_E_SAIDA");
 				$result = $conn->query($sql);
 

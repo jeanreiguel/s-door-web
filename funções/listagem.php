@@ -14,12 +14,14 @@ $db = "portaiot";
 $conn = new mysqli($servername, $username, $password, $db);
 $user = $_GET["user"];
 ?>
+<!-- página de listagem de usuários-->
 <body class="text-white">	
 	<div id="menu">
 		<a href="../functions.php?user=<?php echo $user ?>">
 		<img id="imagem" src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 		</a>
+		<a href="weg.php" id="sair">Sair</a>
 	</div>	
 	<div id="a">
 	<div id="scroll">
@@ -36,6 +38,7 @@ $user = $_GET["user"];
 			</thead>
 			<tbody>
 				<?php
+				#exibição da listagem dos usuários
 				$sql = ("SELECT codUsuario, nome, senha, cartao, permissao FROM usuarios");
 				$result = $conn->query($sql);
 

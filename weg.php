@@ -11,7 +11,7 @@
 
 $user = "";
 $conexao = "";
-
+#exibe alert de confirmação de login ou erro
 if(isset($_GET['msg'])) {
 	if($_GET['msg'] == 'sucesso') {
 		echo "
@@ -33,7 +33,7 @@ if(isset($_POST["user"])) {
 	$user = $_GET["user"];
 }
 ?>
-
+<!-- página de login-->
 <body>
 	<div id="hold">
 		<div id="logo">

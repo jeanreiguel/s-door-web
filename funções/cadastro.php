@@ -26,6 +26,7 @@ if(isset($_GET["user"])) {
 $user = $_GET["user"];
 }
 ?>
+<!-- página de cadastro de usuário-->
 <body class="text-white">	
 
 	<div id="menu">
@@ -33,6 +34,8 @@ $user = $_GET["user"];
 		<img id="imagem" src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 		</a>
+		<a href="weg.php" id="sair">Sair</a>
+
 	</div>
 	<div id="cadastrar">
 		<legend id="legend">CADASTRO DE USUÁRIO</legend>
@@ -62,17 +65,7 @@ $user = $_GET["user"];
 	</div>		
 	</form>
 		<script>
-			function mostrarSenha(){
-				var tipo = document.getElementById("senha");
-				var icon = document.getElementById("eye");
-				if(tipo.type == "password"){
-					icon.src = "../imgs/eye-off.png";
-					tipo.type = "text";
-				}else{
-					icon.src = "../imgs/eye.png";
-					tipo.type = "password";
-				}
-			}
+			//seleção da permissão
 			var valor;
 			function selected(x, y) {
 				document.getElementById(x).style.background = "#479f76";

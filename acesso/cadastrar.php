@@ -1,4 +1,5 @@
 <?php
+#conexão com banco de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,6 +8,7 @@ $db = "portaiot";
 $conn = new mysqli($servername, $username, $password, $db);
 	
 $user = $_GET["user"];
+#realiza o cadastro do usuário
 
 	$nome = $_POST["nome"];
 	$senha = $_POST["senha"];

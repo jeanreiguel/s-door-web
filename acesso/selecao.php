@@ -1,4 +1,5 @@
 <?php
+#realiza a movimentação do menu para as funcionalidades
 $listagem = 'listagem';
 $cadastro = 'cadastro';
 $edicao = 'edicao';

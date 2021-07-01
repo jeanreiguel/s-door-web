@@ -1,4 +1,5 @@
 <?php
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -9,7 +10,6 @@ $conn = new mysqli($servername, $username, $password, $db);
 $sql = ("SELECT * FROM usuarios");
 
 $result = $conn->query($sql);
-
 if(isset($_POST["user"]) && isset($_POST["senha"])){
 	$user = $_POST["user"];
 	$senha = $_POST["senha"];
@@ -27,7 +27,7 @@ if(isset($_POST["user"]) && isset($_POST["senha"])){
 				if($perm == 1) {
 					header("location: ../functions.php?msg=sucesso&user=$user");
 				} else if($perm == 0) {
-					header("location: ../functions copy.php?msg=sucesso&user=$user&noperm##");
+					header("location: ../functions_client.php?msg=sucesso&user=$user&noperm##");
 				} 
 			}
 		}

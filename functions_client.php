@@ -70,7 +70,6 @@
 	#menu > img{
 		width:70px;
 		height:70px;
-		margin-left:100px;
 	}
 
 	#menu > h1{
@@ -79,15 +78,14 @@
 		font-family: 'Roboto', sans-serif;
 		font-size:  40px;
 		color:white;
+		margin:0;
 	}
 	#estadoporta {
 		height:200px;
 		width:300px;
 		background-color: #00473B;
-		position: absolute;
-		right:50;
-		top:100;
 		border-radius:10%;
+		margin-top:40%;
 		padding:15px;
 	}
 	#camposstatus{
@@ -102,6 +100,12 @@
 		font-size:20px;
 		text-align:center;
 	}
+	#sair {
+    position: absolute;
+    top:10px;
+    right: 20px;
+    color: #fff;
+}
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -126,10 +130,12 @@ if(isset($_GET['msg'])) {
 	}
 }
 	?>
-<body class="bg-dark text-white">
+	<!-- página de menu cliente-->
+<body class="text-white">
 	<div id="menu">
 		<img src="imgs/smart-lock.svg">
 		<h1>SENAI</h1>
+		<a href="weg.php" id="sair">Sair</a>
 	</div>
 	<form method='GET' name='selecao' action='acesso/porta.php'>
 	<div id="estadoporta">

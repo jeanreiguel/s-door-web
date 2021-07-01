@@ -42,10 +42,12 @@ if(isset($_GET['msg'])) {
 	}
 }
 	?>
+	<!-- página de menu admin-->
 <body class="text-white">
 	<div id="menu">
 		<img src="imgs/smart-lock.svg">
 		<h1>SENAI</h1>
+		<a href="weg.php" id="sair">Sair</a>
 	</div>
 	<div id="hold">
 		<div id="estadoporta">

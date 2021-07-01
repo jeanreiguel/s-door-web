@@ -107,3 +107,9 @@ margin:20px;
 font-size:20px;
 text-align:center;
 }
+#sair {
+    position: absolute;
+    top:10px;
+    right: 20px;
+    color: #fff;
+}

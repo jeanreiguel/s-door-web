@@ -33,12 +33,14 @@ if(isset($_GET["msg"])) {
 }
 $user = $_GET["user"];
 ?>
+<!-- página de edição de usuários-->
 <body class="text-white">	
 	<div id="menu">
 		<a href="../functions.php?user=<?php echo $user ?>">
 		<img id="imagem" src="../imgs/smart-lock.svg">
 		<h1>SENAI</h1>
 		</a>
+		<a href="weg.php" id="sair">Sair</a>
 	</div>
 	<div id="a">
 	<div id="scroll">
@@ -54,7 +56,7 @@ $user = $_GET["user"];
 			</thead>
 			<tbody>
 				<?php
-
+				#faz a exibição dos usuários
 				$sql = ("SELECT codUsuario, nome, senha, cartao, permissao FROM usuarios");
 				$result = $conn->query($sql);
 
@@ -116,7 +118,9 @@ $user = $_GET["user"];
 		</form>
 	</div>
 		<script>
+			
 			var row, row2, row4; 
+			//conferência dos dados presentes nos inputs
 			function formconf() {
 				if(document.insert.nome.value == "") {
 					document.getElementById("nome").value = row2;
@@ -125,15 +129,18 @@ $user = $_GET["user"];
 					document.getElementById("cartao").value = parseInt(row4);
 				} 
 			}
+			//ativação do botão após selecionar usuário
 			var button = document.getElementById("edit");
 			button.disabled = true;
 			var valor;
+			//seleçãoa da permissão
 			function selected(x, y) {
 				document.getElementById(x).style.background = "#479f76";
 				document.getElementById(y).style.background = "#969696";
 				valor = document.getElementById(x).value;
 				document.getElementById("perm").value = valor;
 			}	
+			//seleção de usuário na listagem
 			$('tr').click(function() { 
 				$(this).addClass('selected_row').siblings().removeClass('selected_row');
 				$('.disabled').addClass('enabled');

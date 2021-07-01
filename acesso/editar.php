@@ -1,4 +1,5 @@
 <?php
+#conexão com banco de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,6 +14,7 @@ $conn = new mysqli($servername, $username, $password, $db);
 	$cartao = $_POST["cartao"];
 	$permission = $_POST["perm"];
 	
+	#resgata a senha caso não seja informada
 	if($senha == "") {
 		$result = $conn->query("SELECT senha from usuarios where codUsuario = $cod");
 		if ($result->num_rows > 0) {
@@ -21,6 +23,8 @@ $conn = new mysqli($servername, $username, $password, $db);
 			}
 		}
 	}
+#realiza a edição do usuário 
+
 	if($permission != "") {
 		if($permission == "admin") {
 				$sql = "UPDATE usuarios SET nome = '$nome', senha = '$senha', cartao = $cartao, permissao = 1 WHERE codUsuario = $cod";

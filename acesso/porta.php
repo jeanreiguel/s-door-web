@@ -1,4 +1,5 @@
 <?php 
+#realiza a abertura da porta e registro dos dados no banco de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
