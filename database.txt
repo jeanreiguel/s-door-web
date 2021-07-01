@@ -1,0 +1,20 @@
+DROP DATABASE IF EXISTS PORTAIOT;
+CREATE DATABASE PORTAIOT;
+USE PORTAIOT;
+
+CREATE TABLE USUARIOS(
+codUsuario int PRIMARY KEY auto_increment,
+nome varchar(60),
+senha varchar(60),
+cartao bigint,
+permissao boolean);
+
+
+CREATE TABLE CONTROLE_ENTRADA_E_SAIDA(
+Usuario varchar(60),
+metodo varchar(60),
+hora_e_data datetime,
+situacao varchar(40));
+
+INSERT INTO USUARIOS VALUES(null, 'admin', 'admin', 111111, true);
+INSERT INTO USUARIOS VALUES(null, 'user','user', 123456, false);
